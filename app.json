@@ -1,0 +1,29 @@
+{
+  "id": "1ee3ba16-dfc1-4c3e-93ed-5899c0487968",
+  "name": "Payment Journal",
+  "publisher": "Keith How",
+  "version": "1.0.0.0",
+  "brief": "Payment Journal",
+  "description": "Payment Journal",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "20.0.0.0",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50249
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "9.0"
+}
