@@ -1,7 +1,7 @@
 /// <summary>
-/// PageExtension KNH Vendor (ID 50002) extends Record Vendor List.
+/// PageExtension KNH Vendor (ID 51101) extends Record Vendor List.
 /// </summary>
-pageextension 50201 "KNH Vendor" extends "Vendor Card"
+pageextension 51101 "KNH Vendor" extends "Vendor Card"
 {
     actions
     {

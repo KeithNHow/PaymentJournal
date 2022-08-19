@@ -1,7 +1,7 @@
 /// <summary>
-/// Page PymtJnlSubpage (ID 50502)
+/// Page PymtJnlSubpage (ID 51100)
 /// </summary>
-page 50200 "KNH Payment Journal Subpage"
+page 51100 "KNH Payment Journal Subpage"
 {
     PageType = ListPart;
     SourceTable = "Vendor Ledger Entry";

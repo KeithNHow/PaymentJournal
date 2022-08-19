@@ -1,7 +1,7 @@
 /// <summary>
-/// Codeunit KNH Vendor (ID 50002).
+/// Codeunit KNH Vendor (ID 51100).
 /// </summary>
-codeunit 50200 "KNH Vendor Transaction Count"
+codeunit 51100 "KNH Vendor Transaction Count"
 {
     TableNo = Vendor;
 

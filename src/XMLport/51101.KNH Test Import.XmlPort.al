@@ -1,7 +1,7 @@
 /// <summary>
 /// New XmlPort Test Import.
 /// </summary>
-xmlport 50201 "KNH Test Import"
+xmlport 51101 "KNH Test Import"
 {
     Caption = 'General Journal Line Import';
     Encoding = UTF8;

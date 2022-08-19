@@ -1,7 +1,7 @@
 /// <summary>
-/// XmlPort KNH Pymt Journal Export(ID 50001).
+/// XmlPort KNH Pymt Journal Export(ID 51100).
 /// </summary>
-xmlport 50200 "KNH Pymt Journal Export"
+xmlport 51100 "KNH Pymt Journal Export"
 {
     Caption = 'Natwest Pymt Jnl Export ';
     schema

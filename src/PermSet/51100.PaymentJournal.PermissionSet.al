@@ -1,7 +1,7 @@
 /// <summary>
-/// Unknown "PaymentJournal" (ID 50200).
+/// Unknown "PaymentJournal" (ID 51100).
 /// </summary>
-permissionset 50200 PaymentJournal
+permissionset 51100 PaymentJournal
 {
     Assignable = true;
     Caption = 'Payment Journal', MaxLength = 30;

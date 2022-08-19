@@ -1,7 +1,7 @@
 /// <summary>
-/// TableExtension NEU Vendor (ID 50001) extends Record Vendor.
+/// TableExtension KNH Vendor (ID 51100) extends Record Vendor.
 /// </summary>
-tableextension 50200 "KNH Vendor" extends Vendor
+tableextension 51100 "KNH Vendor" extends Vendor
 {
     /// <summary>
     /// GotoCodeunit.

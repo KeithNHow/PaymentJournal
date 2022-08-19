@@ -1,7 +1,7 @@
 /// <summary>
-/// PageExtension "MyExtension" (ID 50510) extends Record Payment Journal.
+/// PageExtension "MyExtension" (ID 51100) extends Record Payment Journal.
 /// </summary>
-pageextension 50200 "KNH Extension" extends "Payment Journal"
+pageextension 51100 "KNH Extension" extends "Payment Journal"
 {
     layout
     {
