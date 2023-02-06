@@ -7,7 +7,7 @@ pageextension 51101 "KNH Vendor" extends "Vendor Card"
     {
         addafter(ApprovalEntries)
         {
-            action(RunVendorCU)
+            action("KNH RunVendorCU")
             {
                 Caption = 'Run Vendor Test';
                 PromotedOnly = true;
@@ -16,10 +16,9 @@ pageextension 51101 "KNH Vendor" extends "Vendor Card"
                 PromotedIsBig = true;
                 ToolTip = 'Run Vendor Transaction Count';
                 ApplicationArea = All;
+                image = Vendor;
 
                 trigger OnAction()
-                var
-                    VendTransCount: codeunit "KNH Vendor Transaction Count";
                 begin
                     //VendTransCount.Run(Rec);
                     Codeunit.Run(Codeunit::"KNH Vendor Transaction Count", Rec)

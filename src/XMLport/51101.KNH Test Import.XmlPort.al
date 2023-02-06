@@ -45,7 +45,7 @@ xmlport 51101 "KNH Test Import"
                     //Runs before a field is passed to the XML document.
                     trigger OnBeforePassField()
                     begin
-                        GenJnlLine.Validate("Line No.", LineNo + 10000);
+                        GenJnlLine.Validate("Line No.", GenjnlLine."Line No." + 10000);
                     end;
                 }
                 fieldelement(AccountType; GenJnlLine."Account Type")
@@ -129,12 +129,11 @@ xmlport 51101 "KNH Test Import"
         trigger OnOpenPage()
         begin
             if PostingDateReq = 0D then
-                PostingDateReq := WorkDate;
+                PostingDateReq := WorkDate();
         end;
 
         var
             PostingDateReq: Date;
-            FileNameReq: Text[100];
     }
 
     //Runs after a record is loaded.
@@ -151,7 +150,4 @@ xmlport 51101 "KNH Test Import"
     trigger OnPostXmlPort()
     begin
     end;
-
-    var
-        LineNo: Integer;
 }

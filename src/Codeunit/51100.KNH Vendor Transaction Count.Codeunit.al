@@ -8,10 +8,10 @@ codeunit 51100 "KNH Vendor Transaction Count"
     trigger OnRun();
     var
         VendLedgEntries: Record "Vendor Ledger Entry";
-        TotalRecords: Integer;
+    //TotalRecords: Integer;
     begin
         VendLedgEntries.SetRange("Buy-from Vendor No.", Rec."No.");
-        TotalRecords := VendLedgEntries.Count();
+        //TotalRecords := VendLedgEntries.Count();
     end;
 
 }

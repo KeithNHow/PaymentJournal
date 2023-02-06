@@ -18,17 +18,9 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
     }
     actions
     {
-        addafter("Ledger E&ntries")
-        {
-            action("Email Test")
-            {
-                Caption = 'Email Test';
-                ApplicationArea = All;
-            }
-        }
         addBefore(ExportPaymentsToFile)
         {
-            action(ImportGenJournalLines)
+            action("KNH ImportGenJournalLines")
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'Test I&mport';
@@ -42,9 +34,9 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
                 end;
             }
         }
-        addBefore(ImportGenJournalLines)
+        addBefore("KNH ImportGenJournalLines")
         {
-            action(ExportGenJournalLines)
+            action("KNH ExportGenJournalLines")
             {
                 ApplicationArea = Basic, Suite;
                 Caption = 'Test Ex&port';
@@ -60,7 +52,7 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
                     ExportAgainQst: label 'One or more of the selected lines have already been exported. Do you want to export them again?';
                 begin
                     GenJnlLine.CopyFilters(Rec);
-                    if GenJnlLine.FindFirst then
+                    if GenJnlLine.FindFirst() then
                         if not rec.FindSet() then
                             Error(NothingToExportErr);
                     Rec.SetRange("Journal Template Name", Rec."Journal Template Name");

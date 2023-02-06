@@ -115,7 +115,7 @@ xmlport 51100 "KNH Pymt Journal Export"
     trigger OnInitXmlPort()
     begin
         if PostingDateReq = 0D then
-            PostingDateReq := WorkDate;
+            PostingDateReq := WorkDate();
     end;
 
     trigger OnPreXmlPort()
