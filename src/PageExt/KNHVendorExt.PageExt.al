@@ -1,7 +1,7 @@
 /// <summary>
 /// PageExtension KNH Vendor (ID 51101) extends Record Vendor List.
 /// </summary>
-pageextension 51101 "KNH Vendor" extends "Vendor Card"
+pageextension 51101 "KNHVendorExt" extends "Vendor Card"
 {
     actions
     {
@@ -21,7 +21,7 @@ pageextension 51101 "KNH Vendor" extends "Vendor Card"
                 trigger OnAction()
                 begin
                     //VendTransCount.Run(Rec);
-                    Codeunit.Run(Codeunit::"KNH Vendor Transaction Count", Rec)
+                    Codeunit.Run(Codeunit::"KNHVendorTransactionCount", Rec)
                 end;
             }
         }

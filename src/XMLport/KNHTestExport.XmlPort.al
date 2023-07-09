@@ -1,7 +1,7 @@
 /// <summary>
 /// XmlPort 51102.
 /// </summary>
-xmlport 51102 "KNH Test Export"
+xmlport 51102 "KNHTestExport"
 {
     Caption = 'General Journal Line Export';
     Format = VariableText;

@@ -1,14 +1,14 @@
 /// <summary>
 /// PageExtension "MyExtension" (ID 51100) extends Record Payment Journal.
 /// </summary>
-pageextension 51100 "KNH Extension" extends "Payment Journal"
+pageextension 51100 "KNHPymtJnlExt" extends "Payment Journal"
 {
     layout
     {
         // Add changes to page layout here
         addafter(IncomingDocAttachFactBox)
         {
-            part(ApplyEntriesSub; "KNH Payment Journal Subpage")
+            part(ApplyEntriesSub; "KNHPaymentJournalSubpage")
             {
                 ApplicationArea = All;
                 SubPageLink = "Vendor No." = field("Account No."), "Currency Code" = field("Currency Code");
@@ -18,7 +18,7 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
     }
     actions
     {
-        addBefore(ExportPaymentsToFile)
+        addbefore(ExportPaymentsToFile)
         {
             action("KNH ImportGenJournalLines")
             {
@@ -30,11 +30,11 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
                 ToolTip = 'Import a file with payment information to journal lines';
                 trigger OnAction();
                 begin
-                    Xmlport.Run(Xmlport::"KNH Test Import", true, true);
+                    Xmlport.Run(Xmlport::"KNHTestImport", true, true);
                 end;
             }
         }
-        addBefore("KNH ImportGenJournalLines")
+        addbefore("KNH ImportGenJournalLines")
         {
             action("KNH ExportGenJournalLines")
             {
@@ -64,7 +64,7 @@ pageextension 51100 "KNH Extension" extends "Payment Journal"
                         if not ConfirmManagement.GetResponseOrDefault(ExportAgainQst, true) then
                             exit;
 
-                    Xmlport.Run(xmlport::"KNH Test Export", false, false, GenJnlLine);
+                    Xmlport.Run(xmlport::"KNHTestExport", false, false, GenJnlLine);
                 end;
             }
         }

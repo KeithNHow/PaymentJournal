@@ -1,7 +1,7 @@
 /// <summary>
 /// XmlPort KNH Pymt Journal Export(ID 51100).
 /// </summary>
-xmlport 51100 "KNH Pymt Journal Export"
+xmlport 51100 "KNHPymtJournalExport"
 {
     Caption = 'Natwest Pymt Jnl Export ';
     schema
@@ -10,7 +10,7 @@ xmlport 51100 "KNH Pymt Journal Export"
         {
             tableelement(GenJournalLine; "Gen. Journal Line")
             {
-                SourceTableView = WHERE("Exported to Payment File" = const(false));
+                SourceTableView = where("Exported to Payment File" = const(false));
 
                 textattribute(VendBankName)
                 {
