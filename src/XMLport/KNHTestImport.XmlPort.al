@@ -26,7 +26,6 @@ xmlport 51101 "KNHTestImport"
             {
                 fieldelement(JnlTmpName; GenJnlLine."Journal Template Name")
                 {
-                    //Runs after a field has been assigned a value and before it is validated and imported.
                     trigger OnAfterAssignField()
                     begin
                         GenJnlLine.Validate("Journal Template Name", 'Test');
@@ -34,7 +33,6 @@ xmlport 51101 "KNHTestImport"
                 }
                 fieldelement(BatchName; GenJnlLine."Journal Batch Name")
                 {
-                    //Runs after a field has been assigned a value and before it is validated and imported.
                     trigger OnAfterAssignField()
                     begin
                         GenJnlLine.Validate("Journal Batch Name", 'Keith');
@@ -42,8 +40,7 @@ xmlport 51101 "KNHTestImport"
                 }
                 fieldelement(LineNo; GenJnlLine."Line No.")
                 {
-                    //Runs before a field is passed to the XML document.
-                    trigger OnBeforePassField()
+                    trigger OnAfterAssignField()
                     begin
                         GenJnlLine.Validate("Line No.", GenjnlLine."Line No." + 10000);
                     end;
@@ -62,7 +59,7 @@ xmlport 51101 "KNHTestImport"
                         GenJnlLine.Validate("Account No.");
                     end;
                 }
-                fieldElement(PostDate; GenJnlLine."Posting Date")
+                fieldelement(PostDate; GenJnlLine."Posting Date")
                 {
                     trigger OnAfterAssignField()
                     begin

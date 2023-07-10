@@ -16,7 +16,7 @@ pageextension 51101 "KNHVendorExt" extends "Vendor Card"
                 PromotedIsBig = true;
                 ToolTip = 'Run Vendor Transaction Count';
                 ApplicationArea = All;
-                image = Vendor;
+                Image = Vendor;
 
                 trigger OnAction()
                 begin

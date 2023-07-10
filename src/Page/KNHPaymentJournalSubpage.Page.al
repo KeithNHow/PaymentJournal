@@ -1,5 +1,5 @@
 /// <summary>
-/// Page PymtJnlSubpage (ID 51100)
+/// Page Payment Journal Subpage (ID 51100)
 /// </summary>
 page 51100 "KNHPaymentJournalSubpage"
 {
