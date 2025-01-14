@@ -16,8 +16,8 @@ xmlport 51100 "KNHPymtJournalExport"
                 {
                     trigger OnAfterAssignVariable()
                     begin
-                        VendBankAcc.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
-                        VendBankName := VendBankAcc.Name;
+                        this.VendorBankAccount.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
+                        VendBankName := this.VendorBankAccount.Name;
                     end;
                 }
                 textattribute(ExportNumber)
@@ -31,7 +31,7 @@ xmlport 51100 "KNHPymtJournalExport"
                 {
                     trigger OnAfterAssignVariable()
                     begin
-                        PymtRecordCount := Format(RecordCount);
+                        PymtRecordCount := Format(this.RecordCount);
                     end;
                 }
                 fieldelement(PostingDate; GenJournalLine."Posting Date")
@@ -71,16 +71,16 @@ xmlport 51100 "KNHPymtJournalExport"
                 {
                     trigger OnAfterAssignVariable()
                     begin
-                        VendBankAcc.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
-                        BankAccSortCode := VendBankAcc."Bank Branch No.";
+                        this.VendorBankAccount.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
+                        BankAccSortCode := this.VendorBankAccount."Bank Branch No.";
                     end;
                 }
-                textelement(VendBankAccNo)
+                textelement(VendorBankAccountNo)
                 {
                     trigger OnAfterAssignVariable()
                     begin
-                        VendBankAcc.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
-                        VendBankAccNo := VendBankAcc."Bank Account No.";
+                        this.VendorBankAccount.Get(GenJournalLine."Account No.", GenJournalLine."Recipient Bank Account");
+                        VendorBankAccountNo := this.VendorBankAccount."Bank Account No.";
                     end;
                 }
             }
@@ -114,22 +114,22 @@ xmlport 51100 "KNHPymtJournalExport"
 
     trigger OnInitXmlPort()
     begin
-        if PostingDateReq = 0D then
-            PostingDateReq := WorkDate();
+        if this.PostingDateReq = 0D then
+            this.PostingDateReq := WorkDate();
     end;
 
     trigger OnPreXmlPort()
     var
-        GenJnlLine: Record "Gen. Journal Line";
+        GenJournalLine: Record "Gen. Journal Line";
     begin
-        GenJnlLine.SetRange(GenJnlLine."Journal Template Name", 'Default');
-        GenJnlLine.SetRange(GenJnlLine."Journal Batch Name", 'Default');
-        GenJnlLine.SetRange(GenJnlLine."Exported to Payment File", false);
-        RecordCount := GenJnlLine.Count();
+        GenJournalLine.SetRange(GenJournalLine."Journal Template Name", 'Default');
+        GenJournalLine.SetRange(GenJournalLine."Journal Batch Name", 'Default');
+        GenJournalLine.SetRange(GenJournalLine."Exported to Payment File", false);
+        this.RecordCount := GenJournalLine.Count();
     end;
 
     var
-        VendBankAcc: Record "Vendor Bank Account";
+        VendorBankAccount: Record "Vendor Bank Account";
         PostingDateReq: Date;
         RecordCount: Integer;
 }
