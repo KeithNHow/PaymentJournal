@@ -1,15 +1,15 @@
 /// <summary>
-/// Page Payment Journal Subpage (ID 51100)
+/// This listpart page displays the Vendor Ledger Entries for a single Vendor. The OnRun trigger of the KNHVendorTransactionCount codeunit filters the Vendor Ledger Entry table for the selected Vendor.
 /// </summary>
-page 51100 "KNHPaymentJournalSubpage"
+page 51100 KNHPaymentJournalSubpage
 {
     PageType = ListPart;
     SourceTable = "Vendor Ledger Entry";
-    //Editable = false;
+    ApplicationArea = All;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Control)
             {

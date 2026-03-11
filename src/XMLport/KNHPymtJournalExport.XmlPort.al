@@ -1,7 +1,9 @@
 /// <summary>
-/// XmlPort KNH Pymt Journal Export(ID 51100).
+/// XmlPort is used to export payment journal lines to a BACS file layout. It is launched from an action on the Payment Journal page, where the user can select the journal lines to be exported. The XMLPort will then loop through the selected lines and export the relevant information to a file.
+/// The OnInitXmlPort trigger is used to set a default posting date if the user does not enter one on the request page. The OnPreXmlPort trigger is used to filter the general journal lines that will be exported based on the "Exported to Payment File" field, and to count the number of records that will be exported.
+/// The preXMLPort trigger is also used to set the ExportNumber and PymtRecordCount variables, which are included in the export file as part of the BACS file layout requirements. The ExportNumber is a sequential number that can be used to identify the export file, and the PymtRecordCount is the total number of payment records included in the export.
 /// </summary>
-xmlport 51100 "KNHPymtJournalExport"
+xmlport 51100 KNHPymtJournalExport
 {
     Caption = 'Natwest Pymt Jnl Export ';
     schema
@@ -90,7 +92,7 @@ xmlport 51100 "KNHPymtJournalExport"
     {
         layout
         {
-            area(content)
+            area(Content)
             {
                 group(Options)
                 {
@@ -102,12 +104,6 @@ xmlport 51100 "KNHPymtJournalExport"
                         ToolTip = 'Specifies the posting date for the invoice(s) that the batch job creates. This field must be filled in.';
                     }
                 }
-            }
-        }
-        actions
-        {
-            area(processing)
-            {
             }
         }
     }

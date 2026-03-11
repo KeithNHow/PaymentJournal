@@ -1,14 +1,16 @@
 /// <summary>
-/// XmlPort 51102.
+/// XmlPort is used to export payment journal lines to a BACS file layout. It is launched from an action on the Payment Journal page, where the user can select the journal lines to be exported. The XMLPort will then loop through the selected lines and exports the relevant information to a file.
+/// The exported file is a text file with a .txt extension. There is no delimiter. The first line of the file contains the column headers, and each subsequent line contains the data for each journal line. The file is saved to the C:\Temp folder with the name PymtJnlLinesExport.txt. The XMLPort uses UTF-8 encoding to ensure that special characters are properly handled in the export.
+/// Export fields include Description, Amount, Bank Account Number and Bank Sort Code. The Description field is cleansed of special characters and truncated to 15 characters to meet the requirements of the BACS file layout. The Bank Account Number and Bank Sort Code are retrieved from the Vendor Bank Account table based on the account number and recipient bank account specified in the journal line. These fields are also cleansed of special characters and truncated to meet the BACS file layout requirements.
 /// </summary>
-xmlport 51102 "KNHTestExport"
+xmlport 51102 KNHTestExport
 {
     Caption = 'General Journal Line Export';
     Format = VariableText;
     TextEncoding = UTF8;
     FieldDelimiter = '<None>';
     TableSeparator = '<NewLine>';
-    FileName = 'C:\Temp\MyGenJnlLinesExport.txt';
+    FileName = 'C:\Temp\PymttJnlLinesExport.txt';
     Direction = Export;
     UseRequestPage = false;
 
@@ -76,7 +78,7 @@ xmlport 51102 "KNHTestExport"
                 {
 
                 }
-                Textelement(BankAccNo)
+                textelement(BankAccNo)
                 {
                     trigger OnBeforePassVariable()
                     var
@@ -88,7 +90,7 @@ xmlport 51102 "KNHTestExport"
                         BankAccNo := CopyStr(BankAccNo, 1, 8);
                     end;
                 }
-                Textelement(BankSortCode)
+                textelement(BankSortCode)
                 {
                     trigger OnBeforePassVariable()
                     var
